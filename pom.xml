@@ -3,7 +3,7 @@
     <groupId>com.github.dakusui</groupId>
     <artifactId>java8-template</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.4-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <description>A library to synthesize an object from interfaces dynamically
     </description>
 
