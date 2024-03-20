@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Java8App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java8-template</a> &gt; <a href="index.source.html" class="el_package">com.github.dakusui.java8.template</a> &gt; <span class="el_source">Java8App.java</span></div><h1>Java8App.java</h1><pre class="source lang-java linenums">package com.github.dakusui.java8.template;
+
+/**
+ * An entry-point class of Java8 Template.
+ */
+<span class="fc" id="L6">public class Java8App {</span>
+  /**
+   * This is an entry-point class of the Java 8 example project.
+   *
+   * [ditaa]
+   * .Ditaa diagram example
+   * ----
+   * +--------+   +-------+    +-------+
+   * |        +---+ ditaa +--&gt; |       |
+   * |  Text  |   +-------+    |diagram|
+   * |Document|   |!magic!|    |       |
+   * |     {d}|   |       |    |       |
+   * +---+----+   +-------+    +-------+
+   *     :                         ^
+   *     |       Lots of work      |
+   *     +-------------------------+
+   * ----
+   *
+   * Have fun!
+   *
+   * @param args Arguments passed through the command line.
+   */
+  public static void main(String... args) {
+<span class="fc" id="L29">    Java8App app = new Java8App();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">    for (String i: args)</span>
+<span class="fc" id="L31">      System.out.println(app.process(i));</span>
+<span class="fc" id="L32">  }</span>
+  
+  public String process(String s) {
+<span class="fc" id="L35">    return &quot;processed:&quot; + s;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
