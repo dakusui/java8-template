@@ -3,8 +3,10 @@ include::attributes.adoc[]
 = Quick Start
 
 This is a quick start template file<<Example>>.
-
 Please describe your stuff.
+
+This file is symbolic linked from the `REAME.md`.
+
 
 == Build Instructions
 
@@ -25,8 +27,7 @@ To install them, please refer to the following URLs.
 
 Or you can perhaps just do `{brew,sudo apt,sudo yum} install {maven,graphviz}`.
 
-==== Build Steps
-
+=== Build Steps
 
 .Build
 [source, bash]
@@ -34,11 +35,15 @@ Or you can perhaps just do `{brew,sudo apt,sudo yum} install {maven,graphviz}`.
 $ mvn clean compile
 ----
 
+This just compiles your production codes.
+
 .Conduct Unit Test
 [source, bash]
 ----
 $ mvn clean compile test
 ----
+
+This compiles your production and test codes and then executes the tests.
 
 .Generating Site
 [source, bash]
@@ -62,12 +67,17 @@ Note that `.adoc` files under the `src/site/asciidoc` are rendered into `.html` 
 The mutation testing is configured to cover only small amount of classes to save build time.
 To configure the coverage, refer to <<mutationTesting>>.
 
-.Deploying Site
+.Deploying (publishing) the Site
 [source, bash]
 ----
-$ mvn clean package site
+$ mvn clean package site-deply
 ----
-=== Misc
+
+This generates the documentation and reports and push them to `gh-pages` branch of your repository.
+The documentation will be available as the repository's "gh-pages" site.
+
+
+=== Tips
 
 .Conduct Mutation Test
 ----
@@ -75,7 +85,6 @@ $ mvn clean compile test org.pitest:pitest-maven:mutationCoverage
 ----
 [[mutationTesting]]
 
-Currently, this may take very long time (&ge; 2 hours), if you include all the classes of this product.
 By default, the `pom.xml` is configured to exercise the mutation testing over small number of classes so that you customize the intended coverage.
 
 Under the plugin configuration for `org.pitest:pitest-maven`, you can find a following element.
@@ -89,13 +98,13 @@ Under the plugin configuration for `org.pitest:pitest-maven`, you can find a fol
 ----
 [[pitest-maven-config]]
 
-To cover all the classes, you can modify it like following.
+To limit the classes to be executed, you can modify it like following.
 
 .`pom.xml` configuration for `org.pitest:pitest-maven` plugin
 [source, xml]
 ----
     <targetClasses>
-        <param>com.github.dakusui.java8.template.*</param>
+        <param>com.github.dakusui.java8.template.selected_package.*</param>
     </targetClasses>
 ----
 
@@ -107,22 +116,7 @@ After a successful execution, it generates a pitest report under a directory `ta
 $ mvn clean javadoc:javadoc
 ----
 This generates JavaDoc under `target/site/apidocs`.
-
-.Build the Site
-[source, bash]
-----
-$ mvn clean package site
-----
-
-This generates a site under `target/site` directory.
-
-.Publish the Site
-[source, bash]
-----
-$ mvn clean package site site-deploy
-----
-
-This publishes the documentation to the URL.
+Useful for writing/improving your JavaDoc.
 
 == Copyright and license
 
